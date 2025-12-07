@@ -14,7 +14,7 @@ A modern, interactive PC building wizard that helps users select compatible comp
 
 ## 🛠️ Technologies Used
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **3D Graphics**: 
