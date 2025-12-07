@@ -2,6 +2,8 @@
 
 A modern, interactive PC building wizard that helps users select compatible components and visualize their build in 3D. The application guides users step-by-step through choosing parts and provides direct Amazon purchasing links for the selected components.
 
+![PC Builder Demo](public/demo.webp)
+
 ## 🚀 Features
 
 - **Interactive 3D Visualizer**: Real-time 3D representation of the PC build using React Three Fiber. Watch components appear inside the case as you select them.
