@@ -1,6 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Amazon PC Builder
 
-## Getting Started
+A modern, interactive PC building wizard that helps users select compatible components and visualize their build in 3D. The application guides users step-by-step through choosing parts and provides direct Amazon purchasing links for the selected components.
+
+## 🚀 Features
+
+- **Interactive 3D Visualizer**: Real-time 3D representation of the PC build using React Three Fiber. Watch components appear inside the case as you select them.
+- **Step-by-Step Wizard**: Guided building process ensuring no essential component is missed (Case -> Motherboard -> CPU -> RAM -> GPU -> Storage -> PSU -> Cooler).
+- **Compatibility Checking**: Automatic validation to ensure parts fit together (e.g., CPU socket matching Motherboard socket).
+- **Live Pricing**: Real-time total cost calculation based on selected parts.
+- **Amazon Integration**: Direct "View on Amazon" links for all products, utilizing search results to ensure stock availability.
+- **Responsive Design**: Fully responsive UI that works seamlessly on desktop and mobile devices.
+- **Persistent State**: Build progress is saved as you navigate through the steps.
+
+## 🛠️ Technologies Used
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **3D Graphics**: 
+  - [React Three Fiber](https://docs.pmnd.rs/react-three-fiber): React renderer for Three.js
+  - [Drei](https://github.com/pmndrs/drei): Useful helpers for React Three Fiber
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **State Management**: React Context API
+
+## 📂 Project Structure
+
+```
+src/
+├── app/              # Next.js App Router pages and layouts
+│   ├── builder/      # Builder wizard routes
+│   └── page.tsx      # Landing page
+├── components/       # React components
+│   ├── ThreeD/       # 3D scene and model components
+│   └── ...           # UI components (WizardLayout, PartSelector, etc.)
+├── context/          # Global state (BuildProvider)
+├── data/             # Static data for PC parts
+├── lib/              # Utility functions
+└── types/            # TypeScript interfaces
+```
+
+## 🚦 Getting Started
 
 First, run the development server:
 
@@ -10,27 +49,18 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📝 How It Works
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  **Selection**: The `BuildProvider` manages the current state of the build.
+2.  **Navigation**: Users move through steps defined in `src/lib/utils.ts`.
+3.  **Visualization**: The `VisualAssembler` component observes the current state and renders the appropriate 3D models using `PCScene`.
+4.  **Data**: Product data is stored in `src/data/parts.ts`, including specifications, images, and Amazon links.
 
-## Learn More
+## 🎨 Customization
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   **Colors**: Global theme colors are defined in `src/app/globals.css`.
+-   **Parts**: Add or modify PC parts in `src/data/parts.ts`.
